@@ -1,0 +1,11 @@
+.todo-element-wrap {
+  margin: 5px 0;
+}
+
+.todo-content {
+  margin: 0 5px;
+}
+
+.checked {
+  text-decoration: line-through;
+}

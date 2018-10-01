@@ -22,7 +22,8 @@ class PhoneInfoList extends Component {
           info={info}
           onRemove={onRemove}
           onUpdate={onUpdate}
-        />)
+        />
+      )
 		);
 		
 		return (

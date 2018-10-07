@@ -13,7 +13,8 @@ class TodoList extends Component {
   render() {
     const { data, onUpdate, onRemove } = this.props;
     const list = data.map(
-      todo => (<Todo info={todo}
+      todo => (<Todo key={todo._id}
+                 info={todo}
                  onUpdate={onUpdate}
                  onRemove={onRemove}/>));
     return (

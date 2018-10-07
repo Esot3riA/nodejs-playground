@@ -4,29 +4,31 @@ import './Todo.css';
 class Todo extends Component {
   
   static defaultProps = {
+    key: 0,
 		info: {
-			id: 0,
+			_id: 0,
       content: 'content',
-      checked: false
+      checked: false,
+      created: ''
     }
 	}
 
   handleToggleCheck = () => {
     const { onUpdate } = this.props;
-    const { id, checked } = this.props.info;
-    onUpdate(id, {
+    const { _id, checked } = this.props.info;
+    onUpdate(_id, {
       checked: !checked
     });
   }
   handleRemove = () => {
     const { onRemove } = this.props;
-    const { id } = this.props.info;
-    onRemove(id);
+    const { _id } = this.props.info;
+    onRemove(_id);
   }
   
   shouldComponentUpdate(nextProps, nextState) {
     // Check content is changed.
-    if (this.props.info.id !== nextProps.info.id)
+    if (this.props.info._id !== nextProps.info._id)
       return true;
     // Check 'checked' property is changed.
     if (this.props.info.checked !== nextProps.info.checked)
@@ -35,8 +37,6 @@ class Todo extends Component {
   }
 
   render() {
-    const { id } = this.props.info;
-    console.log('component ' + id + ' is rendered.');
     const { content, checked } = this.props.info;
     return (
       <div className="todo-element-wrap">

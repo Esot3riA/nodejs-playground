@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
-import './TodoList.css';
 import Todo from './Todo';
+import { withStyles } from '@material-ui/core/styles';
+import List from '@material-ui/core/List';
+
+const styles = theme => ({
+  list: { marginTop: theme.spacing.unit }
+});
 
 class TodoList extends Component {
   
@@ -11,19 +16,20 @@ class TodoList extends Component {
   }
   
   render() {
+    const { classes } = this.props;
     const { data, onUpdate, onRemove } = this.props;
     const list = data.map(
       todo => (<Todo key={todo._id}
-                 info={todo}
+                 information={todo}
                  onUpdate={onUpdate}
                  onRemove={onRemove}/>));
     return (
-      <div id="todolist" className="todolist">
+      <List className={classes.list}>
         {list}
-      </div>
+      </List>
     );
   }
   
 }
 
-export default TodoList;
+export default withStyles(styles)(TodoList);

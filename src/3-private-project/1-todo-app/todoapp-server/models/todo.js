@@ -3,6 +3,7 @@ var Schema = mongoose.Schema;
 
 var todoSchema = new Schema({
   content: String,
+  detailContent: String,
   checked: Boolean,
   created: { type: Date, default: Date.now }
 });

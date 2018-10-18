@@ -11,6 +11,7 @@ module.exports = function(app, Todo) {
   app.post('/todos', function(req, res) {
     var todo = new Todo();
     todo.content = req.body.content;
+    todo.detailContent = req.body.detailContent;
     todo.checked = req.body.checked;
     
     todo.save(function(err) {
@@ -33,6 +34,8 @@ module.exports = function(app, Todo) {
       todo.checked = req.body.checked;
       if (req.body.content)
         todo.content = req.body.content;
+      if (req.body.detailContent)
+        todo.detailContent = req.body.detailContent;
       
       todo.save(function(err) {
         if (err)

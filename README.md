@@ -7,3 +7,4 @@ Useful tutorial links:
 3. https://velopert.com/mongodb-tutorial-list
 4. https://velopert.com/reactjs-tutorials
 5. https://material-ui.com/getting-started/installation/
+6. https://blog.asamaru.net/2017/08/14/top-10-es6-features/

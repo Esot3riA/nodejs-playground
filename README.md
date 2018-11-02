@@ -8,3 +8,4 @@ Useful tutorial links:
 4. https://velopert.com/reactjs-tutorials
 5. https://material-ui.com/getting-started/installation/
 6. https://blog.asamaru.net/2017/08/14/top-10-es6-features/
+7. https://velog.io/@velopert/react-component-styling

@@ -301,7 +301,8 @@ module.exports = {
             use: getStyleLoaders({ importLoaders: 2 }).concat({
               loader: require.resolve('sass-loader'),
               options: {
-                includePaths: [paths.appSrc + '/styles']
+                includePaths: [paths.appSrc + '/styles'],
+                data: `@import 'utils';`
               }
             })
           },

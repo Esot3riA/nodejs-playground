@@ -1,24 +1,73 @@
-import number from './number';
-import color from './color';
-import { combineReducers } from 'redux';
+import * as types from '../actions/ActionTypes';
 
-/*
-  Structure of store:
-  ```
-  {
-    numberData: {
-        number: 0
-    },
-    colorData: {
-        color: 'black'
+const initialState = {
+  counters: [
+    {
+      color: 'black',
+      number: 0
     }
+  ]
+};
+
+function counter(state=initialState, action) {
+  const { counters } = state;
+  
+  switch (action.type) {
+    case types.CREATE:
+      return {
+        counters: [
+          ...counters,
+          {
+            color: action.color,
+            number: 0
+          }
+        ]
+      };
+      
+    case types.REMOVE:
+      return {
+        counters: counters.slice(0, counters.length - 1)
+      };
+    
+    case types.INCREMENT:
+      return {
+        counters: [
+          ...counters.slice(0, action.index),
+          {
+            ...counters[action.index],
+            number: counters[action.index].number + 1
+          },
+          ...counters.slice(action.index + 1, counters.length)
+        ]
+      };
+      
+    case types.DECREMENT:
+      return {
+        counters: [
+          ...counters.slice(0, action.index),
+          {
+            ...counters[action.index],
+            number: counters[action.index].number - 1
+          },
+          ...counters.slice(action.index + 1, counters.length)
+        ]
+      };
+      
+    case types.SET_COLOR:
+      return {
+        counters: [
+          ...counters.slice(0, action.index),
+          {
+            ...counters[action.index],
+            color: action.color
+          },
+          ...counters.slice(action.index + 1, counters.length)
+        ]
+      };
+      
+    default:
+      return state;
   }
-  ```
-*/
+};
 
-const reducers = combineReducers({
-  numberData: number,
-  colorData: color
-});
-
-export default reducers;
+export default counter;
